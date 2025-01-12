@@ -80,7 +80,7 @@
 
           // Extract images
           imagesMap.clear();
-          const imageFiles = Object.keys(zipContent.files).filter(name => /\.(png|svg)$/i.test(name));
+          const imageFiles = Object.keys(zipContent.files).filter(name => /\.(png|jpg)$/i.test(name));
           for (const imageFile of imageFiles) {
             const blob = await zipContent.file(imageFile).async('blob');
             const img = new Image();
