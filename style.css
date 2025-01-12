@@ -127,9 +127,12 @@ canvas {
 }
 
 #options {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  align-items: center;
+  align-items: right;
+  align-content: right;
+  align-items: right;
+  text-align: right;
   background: #eee;
   padding: 2vh;
   border-radius: 2.5vh;
@@ -214,4 +217,12 @@ sub {
 
 .grey {
   background: linear-gradient(45deg, #555555, #999999);
+}
+
+.option {
+  align-self: right;
+  align-items: right;
+  align-content: right;
+  align-items: right;
+  text-align: right;
 }

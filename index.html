@@ -10,7 +10,7 @@
 
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
- 
+
   <div class="main">
     <h1>Convert Scratch Sprite to Spritesheet</h1>
     <sub>This is an unofficial tool and is in no way affiliated with Scratch or the Scratch team!</sub>
@@ -19,8 +19,11 @@
       <label for="spriteUpload" id="lFile"></label>
     </div>
     <div id="options">
-      <div class="row">
+      <div class="row option">
         <p>Images per row:</p> <input type="range" id="rowSlider" class="slider" min="1" max="1" value="1"> <input type="number" id="rowNumber" class="sliderField" value="1">
+      </div>
+      <div class="row option">
+        <p>Space between images:</p> <input type="range" id="spaceSlider" class="slider" min="0" max="100" value="0"> <input type="number" id="spaceNumber" class="sliderField" value="1">
       </div>
     </div>
     <div class="row">
@@ -40,6 +43,8 @@
     const downloadLink = document.getElementById('downloadLink');
     const rowInput = document.querySelector("#rowNumber");
     const rowSlider = document.querySelector("#rowSlider");
+    const spaceInput = document.querySelector("#spaceNumber");
+    const spaceSlider = document.querySelector("#spaceSlider");
 
     ctx.imageSmoothingEnabled = false;
     canvas.style.imageRendering = 'pixelated';
@@ -55,11 +60,22 @@
     rowSlider.ontouchmove = rowSlider.onchange;
     rowSlider.onmousemove = rowSlider.onchange;
 
+    spaceSlider.onchange = (e) => {
+      spaceInput.value = spaceSlider.value;
+    };
+    spaceInput.onchange = (e) => {
+      spaceSlider.value = Math.max(spaceSlider.min, Math.min(spaceInput.value, 999999999));
+      spaceInput.value = spaceSlider.value;
+    };
+
+    spaceSlider.ontouchmove = spaceSlider.onchange;
+    spaceSlider.onmousemove = spaceSlider.onchange;
+
     let spriteJson = null;
     let imagesMap = new Map();
 
     // Utility: Round to the next power of 2
-    const nextPowerOf2 = (num) => Math.pow(2, Math.round(Math.log2(num)));
+    const scaleUp = (num) => Math.ceil(num) + Math.sign(num) * spaceInput.value;
 
     // Handle `.sprite3` file upload
     fileInput.addEventListener('change', async (e) => {
@@ -80,13 +96,14 @@
 
           // Extract images
           imagesMap.clear();
-          const imageFiles = Object.keys(zipContent.files).filter(name => /\.(png|jpg)$/i.test(name));
+          const imageFiles = Object.keys(zipContent.files).filter(name => /\.(png|svg)$/i.test(name));
           for (const imageFile of imageFiles) {
             const blob = await zipContent.file(imageFile).async('blob');
             const img = new Image();
             img.src = URL.createObjectURL(blob);
-            await img.decode();
-            imagesMap.set(imageFile, img);
+            img.onload = () => {
+              imagesMap.set(imageFile, img);
+            }
           }
 
           document.querySelector("#lFile").innerHTML = `Loaded: ${file.name} (${imageFiles.length} images)`;
@@ -149,8 +166,8 @@
 
       if (imagesData.includes(null)) return;
 
-      const fixedWidth = nextPowerOf2(maxWidth);
-      const fixedHeight = nextPowerOf2(maxHeight);
+      const fixedWidth = scaleUp(maxWidth);
+      const fixedHeight = scaleUp(maxHeight);
 
       canvas.width = fixedWidth * imgsPerRow;
       canvas.height = fixedHeight * Math.ceil(costumes.length / imgsPerRow);
