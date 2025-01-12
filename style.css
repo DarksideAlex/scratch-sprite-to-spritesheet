@@ -1,0 +1,217 @@
+/* General Styling */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #444;
+  font-size: 5vh;
+  margin-bottom: 2vh;
+  font-weight: 500;
+  letter-spacing: -0.1vw;
+  margin-top: -16vh;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  /* Optional: Background color for visibility */
+  border: 0.4vh dashed #444;
+  /* Dashed border */
+  border-radius: 2.5vh;
+  /* Rounded corners */
+  padding: 10vh 20vw;
+  /* Adjust padding to make it a large rectangle */
+  font-size: 2vh;
+  /* Adjust text size as needed */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0vh 1.5vh 3vh rgba(0, 0, 0, 0.3);
+  margin: 2vh 2vw;
+  /* Add margin for spacing */
+  background-image: url("./sprite.svg");
+  /* Image URL */
+  background-repeat: no-repeat;
+  /* Prevent image from repeating */
+  background-position: center;
+  /* Center the image inside the label */
+  background-size: 24%;
+  /* Adjust the image size */
+}
+
+label:hover {
+  background-color: #f1f1f1;
+  /* Light background change on hover */
+}
+
+label:active {
+  background-color: #e0e0e0;
+  /* Darker background on click */
+  transform: translateY(0.2vh);
+  box-shadow: 0vh 1.5vh 3vh rgba(0, 0, 0, 0.3);
+}
+
+
+/* Button Styling for a, button, and label */
+a,
+button {
+  text-decoration: none;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  border-radius: 5vh;
+  padding: 1.6vh 3.2vw;
+  /* Same padding for all */
+  font-size: 1.6vh;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0vh 1.5vh 3vh rgba(0, 0, 0, 0.3);
+  /* Same shadow for all */
+  margin: 1.6vh 2vw;
+  /* Same margin for all */
+}
+
+a:hover,
+button:hover {
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
+  transform: translateY(-0.5vh);
+  box-shadow: 0vh 1.5vh 3vh rgba(0, 0, 0, 0.4);
+  /* Hover effect for all */
+}
+
+a:active,
+button:active {
+  transform: translateY(0.2vh);
+  box-shadow: 0vh 1.5vh 3vh rgba(0, 0, 0, 0.3);
+  /* Active effect for all */
+}
+
+/* Canvas Styling */
+canvas {
+  border: 0.5vh solid #ddd;
+  padding: 1vh;
+  box-shadow: 0vh 1vh 2vh rgba(0, 0, 0, 0.1);
+  margin-top: 2vh;
+  border-radius: 1vh;
+  object-fit: contain;
+  max-width: 90vw;
+  max-height: 60vh;
+}
+
+/* Upload Section */
+#uploads {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #eee;
+  padding: 2vh;
+  border-radius: 2.5vh;
+  margin: 2vh;
+  outline: 0.2vh solid black;
+}
+
+.row {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.upload-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25vw;
+  background-color: transparent;
+  margin: 2vh;
+  padding: 0;
+  border-radius: 2.5vh;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 25vw;
+  height: 1vh;
+  background: #ddd;
+  border-radius: 1vh;
+  outline: none;
+  transition: background 0.3s;
+  margin-left: 1vw;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2.5vh;
+  height: 2.5vh;
+  background: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #333;
+}
+
+.sliderField {
+  width: 6vw;
+  padding: 1.2vh;
+  font-size: 1.6vh;
+  text-align: center;
+  border: 0.2vh solid #ccc;
+  border-radius: 1vh;
+  margin-left: 1vw;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.sliderField:focus {
+  border-color: #888;
+}
+
+ins.adsbygoogle {
+  position: absolute;
+  left: 2vw;
+  top: 10vh;
+  width: 16vw;
+  height: 64vh;
+  background: #ffffff;
+}
+
+sub {
+  color: red;
+  text-decoration: underline;
+  margin: -1vh;
+  padding: 0;
+}
+
+.grey {
+  background: linear-gradient(45deg, #555555, #999999);
+}
