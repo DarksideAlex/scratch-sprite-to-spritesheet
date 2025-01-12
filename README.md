@@ -2,7 +2,7 @@
 A simple tool, which allows the user to upload a .sprite3 file and recieve a spritesheet of the sprite!
 
 # Important info:
-This project is optimized for bitmap costumes and will only return a png file, even when the sprite only has svg costumes!
+This tool only works with bitmap costumes!
 
 # How do you use it?
 First you'll need to have a .sprite3 which you can get by goin into the Scratch 3 editor, right-clicking your sprite and pressimg export. Depending on the device you might have to confirm a download.
