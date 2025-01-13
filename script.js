@@ -110,11 +110,12 @@ generateButton.addEventListener('click', () => {
   let maxWidth = 0;
   let maxHeight = 0;
 
+  let failedToLoad = [];
   // Calculate max dimensions
   const imagesData = costumes.map(costume => {
     const img = imagesMap.get(costume.md5ext);
     if (!img) {
-      alert(`Costume ${costume.md5ext} not found. Perhaps it was a vector costume?`);
+      failedToLoad.push(costume.md5ext);
       return null;
     } else {
       const offsetX = Math.max(costume.rotationCenterX, img.width - costume.rotationCenterX);
@@ -133,6 +134,14 @@ generateButton.addEventListener('click', () => {
       };
     }
   }).filter(costume => costume != null);
+
+  if(failedToLoad.length > 0) {
+    let listString = "The following images failed to load: ";
+    for(let i = 0; i < failedToLoad.length; i++) {
+      listString += failedToLoad[i] + ", ";
+    }
+    alert(listString + "please note that vector costumes are not supported!");
+  }
 
   const fixedWidth = scaleUp(maxWidth);
   const fixedHeight = scaleUp(maxHeight);

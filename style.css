@@ -5,12 +5,11 @@ body {
   padding: 0;
   background-color: #f4f4f9;
   color: #333;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: block;
 }
 
 .main {
+  padding: 0vh 0vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +23,7 @@ h1 {
   margin-bottom: 2vh;
   font-weight: 500;
   letter-spacing: -0.1vw;
-  margin-top: -16vh;
+  margin-top: 0vh;
 }
 
 input[type="file"] {
@@ -92,14 +91,11 @@ button:active {
 }
 
 canvas {
-  border: 0.5vh solid #ddd;
-  padding: 1vh;
-  box-shadow: 0vh 1vh 2vh rgba(0, 0, 0, 0.1);
-  margin-top: 2vh;
-  border-radius: 1vh;
   object-fit: contain;
+  width: 60vw;
   max-width: 90vw;
   max-height: 60vh;
+  margin-bottom: 10vh;
 }
 
 #uploads {
@@ -126,6 +122,22 @@ canvas {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+}
+
+.footer {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: #454556;
+  outline: 0.8vh solid black;
+  width: 100vw;
+  height: 8vh;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  color: white;
 }
 
 .upload-field {
@@ -204,10 +216,6 @@ sub {
   background: linear-gradient(45deg, #999999, #555555);
 }
 
-.option {
-  align-self: right;
-  align-items: right;
-  align-content: right;
-  align-items: right;
-  text-align: right;
+div.option {
+  justify-content: right;
 }
