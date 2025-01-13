@@ -10,3 +10,11 @@ Next up: Open the tool and click on the area with the scratch cats head to open 
 Once succesfully uploaded, you can use the slider to define how many images you want per row on the spritesheet. This value can range from 1 to the amount of costumes in your sprite.
 You can now click on the generate button to generate the spritesheet. A preview will be shown bellow the button, so you can tweak the settings again. Note: Everytime you change the settings, you will have to regenerate the spritesheet.
 Lastly, you can download it by clicking the download button.
+
+# Changes
+- 1.0 Initial release
+- 1.1 Added the "space between images" option
+- 1.2 Bug fixes: 
+-- Space between frames is now 0 by default
+-- Fixed an issue with android smoothing the images
+-- Fixed the upload field animation (kind of)
