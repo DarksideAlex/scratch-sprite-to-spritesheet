@@ -14,7 +14,8 @@ Lastly, you can download it by clicking the download button.
 # Changes
 - 1.0 Initial release
 - 1.1 Added the "space between images" option
-- 1.2 Bug fixes: 
--- Space between frames is now 0 by default
--- Fixed an issue with android smoothing the images
--- Fixed the upload field animation (kind of)
+- 1.2 Bug fixes:
+ - Space between frames is now 0 by default
+ - Fixed an issue with android smoothing the images
+ - Fixed the upload field animation (kind of)
+- 1.3 Changed some styles and collected error alerts
